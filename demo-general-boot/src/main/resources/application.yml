@@ -1,0 +1,51 @@
+## config
+
+## server
+server:
+  port: 8500
+
+## spring config
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 524288000
+      max-request-size: 524288000
+  datasource:
+    url: "jdbc:mysql://172.16.140.10:3306/demo?useUnicode=true&characterEncoding=utf8\
+      &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true\
+      &nullCatalogMeansCurrent=true"
+    username: root
+    password: "Qwert12345!"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 60000
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 3600000
+      max-lifetime: 6000000
+      connection-test-query: SELECT 1
+
+## mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/*.xml
+  type-aliases-package: com.ljq.demo.general.model.entity
+
+## mybatis log
+logging:
+  level:
+    com.ljq.demo.general.dao: debug
+
+## 异常日志打印的栈的深度
+exceptionLogStackDepth: 4
+
+## sftp 附件上传配置
+uploadSftp:
+  host: 172.16.140.10
+  port: 22
+  username: root
+  password: root
+  path: /home/ljq/upload
+
+
